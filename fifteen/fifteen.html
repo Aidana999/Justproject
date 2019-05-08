@@ -1,0 +1,461 @@
+<html>
+<head>
+<title>Пример реализации игры Пятнашки</title>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251">
+<META NAME="title" CONTENT="Пример реализации игры Пятнашки"
+<META NAME="keywords" CONTENT="Пример,реализации,игры,Пятнашки">
+<META NAME="description" CONTENT="Пример реализации игры Пятнашки на сайте JavaPortal, новости и всё о java и javascript">
+<link rel=stylesheet href="images/style.css" type="text/css">
+</head>
+<body bgColor="#ffffff">
+<a name="top"></a>
+<table cellSpacing="0" cellPadding="10" width="100%" border="0">
+<tr height="70"><!--Line 1-->
+<td bgColor="#006000" colSpan="3">
+<table width="100%">
+<tr>
+<td><a href="http://www.javaportal.ru"><img src="images/logo1.gif" alt="JavaPortal logo" border="0" title="JavaPortal logo"></a>
+</td>
+<td align="right">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!--Line 2-->
+<tr><!--Menu-->
+<td vAlign="top" width="135" bgColor="#f0fff0">
+<center>
+<a href="mailto:webmaster@javaportal.ru"><img src="images/mailmark.gif" border="0" alt="Mail to webmaster@javaportal.ru"></a>
+<a href="project.html"><img src="images/infomark.gif" border="0" alt="О проекте"></a>
+<a href="#" onClick=javascript:window.external.AddFavorite(document.location.href,"JavaPortal--"+document.title)><img src="images/favoritemark.gif" border="0" alt="Добавить в избранное"></a><br>
+<br>
+<a class="menu"  href="http://javaportal.ru/news/news.html">Новости</a><br>
+<a class="menu"  href="http://javaportal.ru/project.html">О проекте</a><br>
+<a class="menu"  href="http://javaportal.ru/subs/subs.html">Рассылки</a><br>
+<a class="menu"  href="http://javaportal.ru/link.html">Связь с нами</a><br><br>
+<table width="135"><tr><td bgcolor=006000><font size=4 color="ffffff"><center><b>Java</b></center></font></td></tr></table>
+<br>
+<a class="menu"  href="http://javaportal.ru/java/applets/applets.html">Апплеты</a><br>
+<a class="menu"  href="http://javaportal.ru/java/faq/faq.html">Вопрос-ответ</a><br>
+<a class="menu"  href="http://javaportal.ru/java/class/class.html">Классы</a><br>
+<a class="menu"  href="http://javaportal.ru/java/conference/conference.html">Конференция</a><br>
+<a class="menu"  href="http://javaportal.ru/java/examples/examples.html">Примеры</a><br>
+<a class="menu"  href="http://javaportal.ru/java/articles/articles.html">Статьи</a><br>
+<br>
+<table width="135"><tr><td bgcolor=006000><font size=3 color="ffffff"><center><b>Мобильная Java</b></center></font></td></tr></table>
+<br>
+<a class="menu"  href="http://javaportal.ru/mobiljava/index.html">Введение</a><br>
+<a class="menu"  href="http://javaportal.ru/mobiljava/examples/index.html">Примеры</a><br>
+<a class="menu"  href="http://javaportal.ru/mobiljava/articles/index.html">Статьи</a><br>
+<br>
+
+<table width="135"><tr><td bgcolor=006000><font size=4 color="ffffff"><center><b>JavaScript</b></center></font></td></tr></table>
+<br>
+<a class="menu"  href="http://javaportal.ru/javascript/faq/faq.html">Вопрос-ответ</a><br>
+<a class="menu"  href="http://javaportal.ru/javascript/conference/conference.html">Конференция</a><br>
+<a class="menu"  href="http://javaportal.ru/javascript/examples/examples.html">Примеры</a><br>
+<a class="menu"  href="http://javaportal.ru/javascript/articles/articles.html">Статьи</a><br>
+<br>
+<table width="135"><tr><td bgcolor=006000><font size=4 color="ffffff"><center><b>Разное</b></center></font></td></tr></table>
+<br>
+<a class="menu"  href="http://javaportal.ru/downloads/downloads.html">Downloads</a><br>
+<a class="menu"  href="http://javaportal.ru/dictionary/dictionary.html">Словарь терминов</a><br>
+<a class="menu"  href="http://javaportal.ru/articles/articles.html">Статьи</a><br>
+<br>
+<br><br><br><br>
+
+
+
+
+
+<table width="135"><tr><td bgcolor="e0efe0"><center><font size="2"><a class="menu" href="http://order.valuehost.ru/start.php?uid=20946">Веб-хостинг от valueHOST</font></a></center></td></tr></table>
+</center>
+<!--#include virtual="../../menu2.html"-->
+</td>
+<!--2-я колонка-->
+<td vAlign="top" align="left" bgColor="#ffffff" rowspan="2">
+
+
+
+
+
+
+<h1><font color="#006000">Пример реализации игры Пятнашки</font></h1>
+
+
+
+
+<pre><font color="blue">
+package fifteen;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Frame1 extends JFrame
+{
+ JPanel contentPane;
+ JPanel gamePane = new JPanel();
+ BorderLayout borderLayout1 = new BorderLayout();
+ <font color="#305000">//линия статус бара</font>
+ JLabel status= new JLabel();
+ <font color="#305000">//массив кнопочек</font>
+ JButton[][] buttons = new JButton[4][4];
+ <font color="#305000">//матрица для хранения чисел</font>
+ int[][] matrix = new int[4][4];
+
+ <font color="#305000">/**Construct the frame*/</font>
+ public Frame1()
+ {
+  enableEvents(AWTEvent.WINDOW_EVENT_MASK);
+  try
+  {
+   jbInit();
+  }
+  catch(Exception e)
+  {
+   e.printStackTrace();
+  }
+ }
+ <font color="#305000">/**Component initialization*/</font>
+ private void jbInit() throws Exception
+ {
+  contentPane = (JPanel) this.getContentPane();
+  contentPane.setLayout(borderLayout1);
+  this.setSize(new Dimension(206,275));
+  this.setTitle("Fifteen");
+  <font color="#305000">//запрещаем изменение размера окна</font>
+  this.setResizable(false);
+  <font color="#305000">//Создаем основное меню</font>
+  JMenuBar menuBar = new JMenuBar();
+  <font color="#305000">//Создаем подменю</font>
+  JMenu menuGame = new JMenu("Game");
+  JMenu menuHelp = new JMenu("Help");
+  <font color="#305000">//Добавляем подменю в основное меню</font>
+  menuBar.add(menuGame);
+  menuBar.add(menuHelp);
+  <font color="#305000">//Устанавливаем полученное меню на окно</font>
+  this.setJMenuBar(menuBar);
+  <font color="#305000">//Создаем элементы подменю Game с обработчиками событий</font>
+  JMenuItem item1 = new JMenuItem("New game");
+  JMenuItem item2 = new JMenuItem("Exit");
+  <font color="#305000">//Создаем элемент подменю Help с обработчиками событий</font>
+  JMenuItem item3 = new JMenuItem("About...");
+  <font color="#305000">//Добавляем обработчики событий по нажатию</font>
+  item1.addActionListener(new java.awt.event.ActionListener()
+  {
+   public void actionPerformed(ActionEvent e)
+   {
+    newGame();
+   }
+   });
+  item2.addActionListener(new java.awt.event.ActionListener()
+  {
+   public void actionPerformed(ActionEvent e)
+   {
+    System.exit(0);<font color="#305000">//Выход из системы</font>
+   }
+  });
+  item3.addActionListener(new java.awt.event.ActionListener()
+  {
+   public void actionPerformed(ActionEvent e)
+   {
+    JOptionPane.showMessageDialog(null,
+"Game fifteen. Copyright Yura Ladik. Site: www.JavaPortal.ru","About",
+    JOptionPane.QUESTION_MESSAGE);
+   }
+  });
+
+  <font color="#305000">//Добавляем созданные элементы к подменю</font>
+  menuGame.add(item1);
+  menuGame.add(item2);
+  menuHelp.add(item3);
+  gamePane.setLayout(null);
+  <font color="#305000">// добавляем кнопочки</font>
+  int count=0;
+  for(int i = 0;i<4;i++)
+   for(int j = 0;j<4;j++)
+   {
+    buttons[i][j] = new JButton(""+count);
+    <font color="#305000">//устанавливаем обработчик событий</font>
+    buttons[i][j].addMouseListener(new mAdapter(i,j));
+    buttons[i][j].setSize(50,50);
+    buttons[i][j].setLocation(50*j,50*i);
+    buttons[i][j].setCursor(new Cursor(Cursor.HAND_CURSOR));
+    gamePane.add(buttons[i][j]);
+    matrix[i][j]=count;<font color="#305000">//задаем матрицу</font>
+    count++;
+   }
+  buttons[0][0].setText(" ");
+  <font color="#305000">//Добавляем игровую панель с кнопками</font>
+  contentPane.add(gamePane,BorderLayout.CENTER);
+  <font color="#305000">//обрамляем строку статуса</font>
+  status.setBorder(BorderFactory.createEtchedBorder());
+  <font color="#305000">//Добавляем строку статуса</font>
+  contentPane.add(status,BorderLayout.SOUTH);
+  <font color="#305000">//новая игра</font>
+  newGame();
+ }
+ <font color="#305000">/**Overridden so we can exit when window is closed*/</font>
+ protected void processWindowEvent(WindowEvent e)
+ {
+  super.processWindowEvent(e);
+  if (e.getID() == WindowEvent.WINDOW_CLOSING)
+  {
+   System.exit(0);
+  }
+ }
+ <font color="#305000">/**Случайным образом переставляем элементы матрицы*/</font>
+ public void randomizeMatrix()
+ {
+  for(int i = 0;i<100;i++)
+  {
+   int a = (int)(Math.random()*4);
+   int b = (int)(Math.random()*4);
+   int a2 = (int)(Math.random()*4);
+   int b2 = (int)(Math.random()*4);
+
+   int c = matrix[a][b];
+   matrix[a][b] = matrix[a2][b2];
+   matrix[a2][b2] = c;
+  }
+ }
+ <font color="#305000">/**Начинаем новую игру*/</font>
+ public void newGame()
+ {
+  randomizeMatrix();
+  for(int i = 0;i<4;i++)
+   for(int j = 0;j<4;j++)
+   {
+    <font color="#305000">//пишем на кнопочках числа из матрицы</font>
+    if(matrix[i][j]!=0)buttons[i][j].setText(""+matrix[i][j]);
+    else buttons[i][j].setText("");
+   }
+  status.setText("new game started");
+  gamePane.setVisible(true);
+ }
+ <font color="#305000">/**Класс адаптера прослушивающий события над кнопкой*/</font>
+ class mAdapter extends java.awt.event.MouseAdapter
+ {
+  int posi,posj;
+  int startx=0;
+  int starty=0;
+  <font color="#305000">/**Конструктор адаптера в зависимости от позиции кнопочки*/</font>
+  mAdapter(int posI,int posJ)
+  {
+   this.posi=posI;
+   this.posj=posJ;
+  }
+  <font color="#305000">/**При нажатой кнопке мыши*/</font>
+  public void mousePressed(MouseEvent e)
+  {
+   <font color="#305000">//меняем курсор</font>
+   buttons[posi][posj].setCursor(new Cursor(Cursor.MOVE_CURSOR));
+   <font color="#305000">//запоминаем точку начала переноса кнопки</font>
+   startx=e.getX();
+   starty=e.getY();
+  }
+  <font color="#305000">/**При отпускании кнопки мыши*/</font>
+  public void mouseReleased(MouseEvent e)
+  {
+   <font color="#305000">//меняем курсор</font>
+   buttons[posi][posj].setCursor(new Cursor(Cursor.HAND_CURSOR));
+   <font color="#305000">//запоминаем точку окончания переноса кнопки</font>
+   int endx=e.getX();
+   int endy=e.getY();
+   <font color="#305000">//определяем направление переноса
+   //если абсолютная величина (shiftx) больше
+   //абсолютной величины (shifty)
+   //значит передвигаемся по оси х</font>
+   int shiftx=endx-startx;
+   int shifty=endy-starty;
+   if(Math.abs(shiftx)>Math.abs(shifty))
+   {
+    <font color="#305000">//определяем направление движения по оси х</font>
+    if(shiftx>0)
+    {<font color="#305000">//впрово
+
+     //если это не крайние правые кнопки
+     //и правая кнопка пустая
+     //меняем местами кнопку с пустой кнопкой</font>
+     if((posj != 3) && (matrix[posi][posj+1] == 0))
+     {
+      matrix[posi][posj+1] = matrix[posi][posj];
+      matrix[posi][posj]=0;
+      buttons[posi][posj].setText("");
+      buttons[posi][posj+1].setText(""+matrix[posi][posj+1]);
+      status.setText("good turn");
+     }else status.setText("it is impossible");
+    }
+    else
+    {<font color="#305000">//влево
+
+     //если это не крайние левые кнопки
+     //и левая кнопка пустая
+     //меняем местами кнопку с пустой кнопкой</font>
+     if((posj != 0) && (matrix[posi][posj-1] == 0))
+     {
+      matrix[posi][posj-1] = matrix[posi][posj];
+      matrix[posi][posj]=0;
+      buttons[posi][posj].setText("");
+      buttons[posi][posj-1].setText(""+matrix[posi][posj-1]);
+      status.setText("good turn");
+     }else status.setText("it is impossible");
+    }
+   }
+   else
+   {
+    <font color="#305000">//определяем направление движения по оси y</font>
+    if(shifty>0)
+    {<font color="#305000">//вниз
+
+     //если это не крайние нижние кнопки
+     //и нижняя кнопка пустая
+     //меняем местами кнопку с пустой кнопкой</font>
+     if((posi != 3) && (matrix[posi+1][posj] == 0))
+     {
+      matrix[posi+1][posj] = matrix[posi][posj];
+      matrix[posi][posj]=0;
+      buttons[posi][posj].setText("");
+      buttons[posi+1][posj].setText(""+matrix[posi+1][posj]);
+      status.setText("good turn");
+     }else status.setText("it is impossible");
+    }
+    else
+    {<font color="#305000">//вверх
+
+     //если это не крайние верхние кнопки
+     //и верхняя кнопка пустая
+     //меняем местами кнопку с пустой кнопкой</font>
+     if((posi != 0) && (matrix[posi-1][posj] == 0))
+     {
+      matrix[posi-1][posj] = matrix[posi][posj];
+      matrix[posi][posj]=0;
+      buttons[posi][posj].setText("");
+      buttons[posi-1][posj].setText(""+matrix[posi-1][posj]);
+      status.setText("good turn");
+     }else status.setText("it is impossible");
+    }
+   }
+   <font color="#305000">//проверяем все ли числа стоят на своих местах
+   //если да то победа!!!</font>
+   int count=1;
+   int error=0;
+   for(int i = 0;i<4;i++)
+    for(int j = 0;j<4;j++)
+    {
+     if(matrix[i][j]!=count)error++;
+     count++;
+    }
+   if(error==1)
+   {
+    status.setText("You win!!!");
+    int result = JOptionPane.showConfirmDialog(null,
+     "You win!!!","You win!!! New game?",JOptionPane.YES_NO_OPTION);
+    if (result == JOptionPane.YES_OPTION)newGame();
+    else gamePane.setVisible(false);
+   }
+  }
+ }
+}
+</font></pre>
+<br>
+<br>
+<br>
+<pre><font color="blue">
+package fifteen;
+
+import javax.swing.UIManager;
+import java.awt.*;
+
+public class Application1
+{
+ boolean packFrame = false;
+ <font color="#305000">/**Construct the application*/</font>
+ public Application1()
+ {
+  Frame1 frame = new Frame1();
+  <font color="#305000">//Validate frames that have preset sizes
+  //Pack frames that have useful preferred 
+  //size info, e.g. from their layout</font>
+  if (packFrame)
+  {
+   frame.pack();
+  }
+  else
+  {
+   frame.validate();
+  }
+  <font color="#305000">//Center the window</font>
+  Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+  Dimension frameSize = frame.getSize();
+  if (frameSize.height > screenSize.height)
+  {
+   frameSize.height = screenSize.height;
+  }
+  if (frameSize.width > screenSize.width)
+  {
+   frameSize.width = screenSize.width;
+  }
+  frame.setLocation((screenSize.width - frameSize.width) / 2,
+                  (screenSize.height - frameSize.height) / 2);
+  frame.setVisible(true);
+ }
+ <font color="#305000">/**Main method*/</font>
+ public static void main(String[] args)
+ {
+  try
+  {
+   UIManager.setLookAndFeel(
+      UIManager.getCrossPlatformLookAndFeelClassName());
+  }
+  catch(Exception e)
+  {
+   e.printStackTrace();
+  }
+  new Application1();
+ }
+}
+</font></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>JAR-архивы:<br>
+<a href="fifteen.jar">jar-архив</a><br>
+
+
+
+
+
+</td>
+<td vAlign="top" align="left" width="135" bgColor="#f0fff0">
+</td>
+</tr>
+<tr height="20" bgColor="#f0fff0">
+<td vAlign="bottom" align="right">
+<a href="#top"><img src="images/upmark.gif" border="0" alt="Наверх"></a>
+</td>
+<td vAlign="bottom">
+<a href="#top"><img src="images/upmark.gif" border="0" alt="Наверх"></a>
+</td>
+</tr>
+</table>
+<hr color="#006000">
+<hr color="#006000">
+<div align="right"><font size="2">Copyright © 2001-2002 Ю.В.Ладик</font></div>
+</body>
+</html>
+
+
+
