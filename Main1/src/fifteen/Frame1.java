@@ -221,8 +221,8 @@ public class Frame1 extends JFrame {
                         matrix[posi][posj] = 0;
                         buttons[posi][posj].setText("");
                         buttons[posi + 1][posj].setText("" + matrix[posi + 1][posj]);
-                        
-                    } 
+                        status.setText("good turn");
+                    } else status.setText("it is impossible");
                 } else {//�����
 
                     //���� ��� �� ������� ������� ������
