@@ -1,4 +1,4 @@
-# FIFTEEN-GAME
+# FIFTEEN-GAME created by Aidana Mirlan kyzy
 This project is for course CS102.
 Author: Aidana Mirlan kyzy
 
