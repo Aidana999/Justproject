@@ -20,7 +20,7 @@ public class Application1 {
         }
         //Center the window
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        
+        Dimension frameSize = frame.getSize();
         if (frameSize.height > screenSize.height) {
             frameSize.height = screenSize.height;
         }
