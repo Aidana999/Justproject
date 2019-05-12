@@ -6,7 +6,7 @@ import java.awt.*;
 public class Application1
 {
  boolean packFrame = false;
- /**Construct the application*/
+ //Construct the application
  public Application1()
  {
   Frame1 frame = new Frame1();
@@ -36,7 +36,7 @@ public class Application1
                   (screenSize.height - frameSize.height) / 2);
   frame.setVisible(true);
  }
- /**Main method*/
+//main method
  public static void main(String[] args)
  {
   try
