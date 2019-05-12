@@ -1,3 +1,3 @@
 # FIFTEEN-GAME
-This project is for the course CS102
-Athor: Aidana Mirlan kyzy
+This project is for course CS102.
+Author: Aidana Mirlan kyzy
