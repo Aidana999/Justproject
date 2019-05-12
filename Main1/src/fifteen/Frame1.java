@@ -152,7 +152,10 @@ public class Frame1 extends JFrame {
         /**
          * ����������� �������� � ����������� �� ������� ��������
          */
-    
+        mAdapter(int posI, int posJ) {
+            this.posi = posI;
+            this.posj = posJ;
+        }
 
         /**
          * ��� ������� ������ ����
