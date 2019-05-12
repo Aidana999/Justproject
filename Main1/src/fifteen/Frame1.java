@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Frame1 extends JFrame implements KeyListener
+public class Frame1 extends JFrame
 {
  JPanel contentPane;
  JPanel gamePane = new JPanel();
@@ -270,25 +270,3 @@ public class Frame1 extends JFrame implements KeyListener
  }
 }
 
-//    /** Handle the key typed event from the text field. */
-//    public void keyTyped(KeyEvent e) {
-//        //displayInfo(e, "KEY TYPED: ");
-//        System.out.printf("key typed");
-//    }
-//
-//    /** Handle the key-pressed event from the text field. */
-//    public void keyPressed(KeyEvent e) {
-//        int keycode = e.getKeyCode();
-//        if (keycode == KeyEvent.VK_NUMPAD8)
-//        //displayInfo(e, "KEY PRESSED: ");
-//        System.out.printf("key pressed");
-//    }
-//
-//    /** Handle the key-released event from the text field. */
-//    public void keyReleased(KeyEvent e) {
-//        //displayInfo(e, "KEY RELEASED: ");
-//        System.out.printf("key released");
-//    }
-//
-//
-//}
