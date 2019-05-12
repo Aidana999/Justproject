@@ -10,16 +10,15 @@ public class Frame1 extends JFrame {
     BorderLayout borderLayout1 = new BorderLayout();
 
     JLabel status = new JLabel();
-
     JButton[][] buttons = new JButton[4][4];
-
-    int[][] matrix = new int[4][4];
+    int[][] matrix = new int[4][4]; //create matrix
 
     /**
      * Construct the frame
      */
     public Frame1() {
         enableEvents(AWTEvent.WINDOW_EVENT_MASK);
+        
         try {
             jbInit();
         } catch (Exception e) {
