@@ -52,9 +52,7 @@ public class Frame1 extends JFrame {
         JMenuItem item3 = new JMenuItem("About...");
         //��������� ����������� ������� �� �������
         item1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                newGame();
-            }
+            //add function here
         });
         item2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
