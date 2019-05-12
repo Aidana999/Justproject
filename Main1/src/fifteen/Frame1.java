@@ -53,6 +53,9 @@ public class Frame1 extends JFrame {
         //��������� ����������� ������� �� �������
         item1.addActionListener(new java.awt.event.ActionListener() {
             //add function here
+            public void actionPerformed(ActionEvent e) {
+                newGame();
+            }
         });
         item2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -68,10 +71,7 @@ public class Frame1 extends JFrame {
         });
 
         //��������� ��������� �������� � �������
-        menuGame.add(item1);
-        menuGame.add(item2);
-        menuHelp.add(item3);
-        gamePane.setLayout(null);
+        
         // ��������� ��������
         int count = 0;
         for (int i = 0; i < 4; i++)
