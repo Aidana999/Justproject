@@ -244,7 +244,13 @@ public class Frame1 extends JFrame {
             //���� �� �� ������!!!
             int count = 1;
             int error = 0;
-        
+           
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++) {
+                    if (matrix[i][j] != count) error++;
+                    count++;
+                }
+           
         }
     }
 }
