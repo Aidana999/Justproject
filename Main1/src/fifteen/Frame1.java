@@ -138,6 +138,7 @@ public class Frame1 extends JFrame {
                 else buttons[i][j].setText("");
             }
             status.setText("New game started");
+           gamePane.setVisible(true);
       }
 
     /**
