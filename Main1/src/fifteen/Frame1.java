@@ -46,6 +46,11 @@ public class Frame1 extends JFrame {
         //������������� ���������� ���� �� ����
         this.setJMenuBar(menuBar);
         //menu button is here
+        //������� �������� ������� Game � ������������� �������
+        JMenuItem item1 = new JMenuItem("New game");
+        JMenuItem item2 = new JMenuItem("Exit");
+        //������� ������� ������� Help � ������������� �������
+        JMenuItem item3 = new JMenuItem("About...");
         //��������� ����������� ������� �� �������
         item1.addActionListener(new java.awt.event.ActionListener() {
             //add function here
@@ -109,18 +114,7 @@ public class Frame1 extends JFrame {
     /**
      * ��������� ������� ������������ �������� �������
      */
-    public void randomizeMatrix() {
-        for (int i = 0; i < 100; i++) {
-            int a = (int) (Math.random() * 4);
-            int b = (int) (Math.random() * 4);
-            int a2 = (int) (Math.random() * 4);
-            int b2 = (int) (Math.random() * 4);
-
-            int c = matrix[a][b];
-            matrix[a][b] = matrix[a2][b2];
-            matrix[a2][b2] = c;
-        }
-    }
+    
 
     /**
      * �������� ����� ����
