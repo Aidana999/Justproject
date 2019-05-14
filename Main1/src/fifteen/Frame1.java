@@ -89,7 +89,8 @@ public class Frame1 extends JFrame {
                 matrix[i][j] = count;//������ �������
                 count++;
             }
-       
+        buttons[0][0].setText(" ");
+        
         //����� ����
         newGame();
     }
