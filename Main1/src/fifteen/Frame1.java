@@ -35,7 +35,7 @@ public class Frame1 extends JFrame {
         this.setSize(new Dimension(206, 275));
         this.setTitle("Fifteen");
 
-        
+        this.setResizable(false);
 
         JMenuBar menuBar = new JMenuBar();
 
