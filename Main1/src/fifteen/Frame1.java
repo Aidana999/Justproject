@@ -254,7 +254,8 @@ public class Frame1 extends JFrame {
                 
                 int result = JOptionPane.showConfirmDialog(null,
                         "You win!!!", "You win!!! New game?", JOptionPane.YES_NO_OPTION);
-               
+                if (result == JOptionPane.YES_OPTION) newGame();
+                else gamePane.setVisible(false);
             }
         }
     }
