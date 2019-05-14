@@ -63,13 +63,7 @@ public class Frame1 extends JFrame {
                 System.exit(0);//����� �� �������
             }
         });
-        item3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,
-                        "Game fifteen. Copyright Yura Ladik. Site: www.JavaPortal.ru", "About",
-                        JOptionPane.QUESTION_MESSAGE);
-            }
-        });
+    
 
         //��������� ��������� �������� � �������
         menuGame.add(item1);
