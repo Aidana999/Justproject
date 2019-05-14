@@ -137,8 +137,8 @@ public class Frame1 extends JFrame {
                 if (matrix[i][j] != 0) buttons[i][j].setText("" + matrix[i][j]);
                 else buttons[i][j].setText("");
             }
-       
-    }
+            status.setText("New game started");
+      }
 
     /**
      * ����� �������� �������������� ������� ��� �������
