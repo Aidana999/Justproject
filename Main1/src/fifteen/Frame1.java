@@ -114,6 +114,14 @@ public class Frame1 extends JFrame {
     /**
      * ��������� ������� ������������ �������� �������
      */
+    public void randomizeMatrix() {
+        for (int i = 0; i < 100; i++) {
+            int a = (int) (Math.random() * 4);
+            int b = (int) (Math.random() * 4);
+            int a2 = (int) (Math.random() * 4);
+            int b2 = (int) (Math.random() * 4);
+        }
+    }
     
 
     /**
