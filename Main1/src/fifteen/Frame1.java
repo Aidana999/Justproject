@@ -35,7 +35,7 @@ public class Frame1 extends JFrame {
         this.setSize(new Dimension(206, 275));
         this.setTitle("Fifteen");
 
-        this.setResizable(false);
+        
 
         JMenuBar menuBar = new JMenuBar();
 
@@ -120,6 +120,10 @@ public class Frame1 extends JFrame {
             int b = (int) (Math.random() * 4);
             int a2 = (int) (Math.random() * 4);
             int b2 = (int) (Math.random() * 4);
+
+            int c = matrix[a][b];
+            matrix[a][b] = matrix[a2][b2];
+            matrix[a2][b2] = c;
         }
     }
     
