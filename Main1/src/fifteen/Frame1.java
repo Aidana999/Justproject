@@ -250,7 +250,12 @@ public class Frame1 extends JFrame {
                     if (matrix[i][j] != count) error++;
                     count++;
                 }
-           
+            if (error == 1) {
+                
+                int result = JOptionPane.showConfirmDialog(null,
+                        "You win!!!", "You win!!! New game?", JOptionPane.YES_NO_OPTION);
+               
+            }
         }
     }
 }
