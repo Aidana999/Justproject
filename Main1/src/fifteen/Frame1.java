@@ -1,3 +1,6 @@
+/********************************************/
+/* Fifteen game made by Aidana Mirlan kyzy */
+/******************************************/
 package fifteen;
 
 import java.awt.*;
@@ -18,7 +21,7 @@ public class Frame1 extends JFrame {
      */
     public Frame1() {
         enableEvents(AWTEvent.WINDOW_EVENT_MASK);
-        
+
         try {
             jbInit();
         } catch (Exception e) {
@@ -104,7 +107,7 @@ public class Frame1 extends JFrame {
     /**
      * Overridden so we can exit when window is closed
      */
-        protected void processWindowEvent(WindowEvent e) {
+    protected void processWindowEvent(WindowEvent e) {
         super.processWindowEvent(e);
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
             System.exit(0);
@@ -126,12 +129,12 @@ public class Frame1 extends JFrame {
             matrix[a2][b2] = c;
         }
     }
-    
+
 
     /**
      * �������� ����� ����
      */
-       public void newGame() {
+    public void newGame() {
         randomizeMatrix();
         for (int i = 0; i < 4; i++)
             for (int j = 0; j < 4; j++) {
@@ -139,9 +142,9 @@ public class Frame1 extends JFrame {
                 if (matrix[i][j] != 0) buttons[i][j].setText("" + matrix[i][j]);
                 else buttons[i][j].setText("");
             }
-            status.setText("New game started");
-           gamePane.setVisible(true);
-      }
+        status.setText("New game started");
+        gamePane.setVisible(true);
+    }
 
     /**
      * ����� �������� �������������� ������� ��� �������
@@ -244,7 +247,7 @@ public class Frame1 extends JFrame {
             //���� �� �� ������!!!
             int count = 1;
             int error = 0;
-           
+
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++) {
                     if (matrix[i][j] != count) error++;
@@ -260,4 +263,3 @@ public class Frame1 extends JFrame {
         }
     }
 }
-
