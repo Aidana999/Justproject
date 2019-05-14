@@ -251,7 +251,7 @@ public class Frame1 extends JFrame {
                     count++;
                 }
             if (error == 1) {
-                
+                status.setText("You win!!!");
                 int result = JOptionPane.showConfirmDialog(null,
                         "You win!!!", "You win!!! New game?", JOptionPane.YES_NO_OPTION);
                 if (result == JOptionPane.YES_OPTION) newGame();
