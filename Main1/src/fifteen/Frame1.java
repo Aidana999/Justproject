@@ -89,13 +89,7 @@ public class Frame1 extends JFrame {
                 matrix[i][j] = count;//������ �������
                 count++;
             }
-        buttons[0][0].setText(" ");
-        //��������� ������� ������ � ��������
-        contentPane.add(gamePane, BorderLayout.CENTER);
-        //��������� ������ �������
-        status.setBorder(BorderFactory.createEtchedBorder());
-        //��������� ������ �������
-        contentPane.add(status, BorderLayout.SOUTH);
+       
         //����� ����
         newGame();
     }
