@@ -244,18 +244,7 @@ public class Frame1 extends JFrame {
             //���� �� �� ������!!!
             int count = 1;
             int error = 0;
-            for (int i = 0; i < 4; i++)
-                for (int j = 0; j < 4; j++) {
-                    if (matrix[i][j] != count) error++;
-                    count++;
-                }
-            if (error == 1) {
-                status.setText("You win!!!");
-                int result = JOptionPane.showConfirmDialog(null,
-                        "You win!!!", "You win!!! New game?", JOptionPane.YES_NO_OPTION);
-                if (result == JOptionPane.YES_OPTION) newGame();
-                else gamePane.setVisible(false);
-            }
+        
         }
     }
 }
