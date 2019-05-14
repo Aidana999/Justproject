@@ -45,11 +45,7 @@ public class Frame1 extends JFrame {
         menuBar.add(menuHelp);
         //������������� ���������� ���� �� ����
         this.setJMenuBar(menuBar);
-        //������� �������� ������� Game � ������������� �������
-        JMenuItem item1 = new JMenuItem("New game");
-        JMenuItem item2 = new JMenuItem("Exit");
-        //������� ������� ������� Help � ������������� �������
-        JMenuItem item3 = new JMenuItem("About...");
+        //menu button is here
         //��������� ����������� ������� �� �������
         item1.addActionListener(new java.awt.event.ActionListener() {
             //add function here
