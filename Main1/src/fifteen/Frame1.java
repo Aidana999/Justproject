@@ -164,8 +164,7 @@ public class Frame1 extends JFrame {
             //������ ������
             buttons[posi][posj].setCursor(new Cursor(Cursor.MOVE_CURSOR));
             //���������� ����� ������ �������� ������
-            startx = e.getX();
-            starty = e.getY();
+            
         }
 
         /**
