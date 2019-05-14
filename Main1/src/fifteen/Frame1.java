@@ -129,7 +129,16 @@ public class Frame1 extends JFrame {
     /**
      * �������� ����� ����
      */
-   
+       public void newGame() {
+        randomizeMatrix();
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++) {
+                //пишем на кнопочках числа из матрицы
+                if (matrix[i][j] != 0) buttons[i][j].setText("" + matrix[i][j]);
+                else buttons[i][j].setText("");
+            }
+       
+    }
 
     /**
      * ����� �������� �������������� ������� ��� �������
